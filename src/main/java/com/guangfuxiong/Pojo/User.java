@@ -3,6 +3,13 @@ package com.guangfuxiong.Pojo;
 public class User {
     private String name;
     private Integer age;
+    private Dog dog;
+
+    public User(String name, Integer age,Dog dog) {
+        this.name = name;
+        this.age = age;
+        this.dog = dog;
+    }
 
     public String getName() {
         return name;
@@ -34,11 +41,21 @@ public class User {
         System.out.println("销毁方法");
     }
 
+
+    public Dog getDog() {
+        return dog;
+    }
+
+    public void setDog(Dog dog) {
+        this.dog = dog;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
+                ", dog=" + dog +
                 '}';
     }
 }

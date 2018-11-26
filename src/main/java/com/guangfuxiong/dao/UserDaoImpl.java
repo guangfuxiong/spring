@@ -2,7 +2,7 @@ package com.guangfuxiong.dao;
 
 import com.guangfuxiong.Pojo.User;
 
-public class UserDaoImpl implements UserDao{
+public class UserDaoImpl extends BaseDao implements UserDao{
     User user;
 
     public User getUser() {
@@ -14,6 +14,8 @@ public class UserDaoImpl implements UserDao{
     }
 
     public void addUser(){
+        dataSource.getConn();
         System.out.println("成功添加用户");
+        dataSource.closeConn();
     }
 }

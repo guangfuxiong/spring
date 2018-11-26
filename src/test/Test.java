@@ -1,8 +1,8 @@
-import com.guangfuxiong.Pojo.Person;
+import com.guangfuxiong.Pojo.*;
 import com.guangfuxiong.action.UserAction;
+import com.guangfuxiong.dao.ProductDao;
 import org.junit.Before;
 import org.springframework.context.ApplicationContext;
-import com.guangfuxiong.Pojo.User;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Calendar;
@@ -54,5 +54,19 @@ public class Test {
     public void test6(){
         UserAction userAction = ac.getBean(UserAction.class);
         userAction.addUser();
+    }
+    @org.junit.Test
+    public void test7(){
+        ProductDao productDao = (ProductDao)ac.getBean("productDao");
+        productDao.addProduct();
+    }
+    @org.junit.Test
+    //自动装配（byName）
+    public void test8(){
+        User_Cat_Car user_cat_car = (User_Cat_Car)ac.getBean("user_Cat_Car");
+        Car car = user_cat_car.getCar();
+        car.happy();
+        Cat cat = user_cat_car.getCat();
+        cat.say();
     }
 }
