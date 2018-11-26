@@ -1,4 +1,4 @@
-package com.guangfuxiong.test;
+package com.guangfuxiong.Pojo;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

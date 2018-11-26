@@ -1,4 +1,4 @@
-package com.guangfuxiong.test;
+package com.guangfuxiong.Pojo;
 
 public class User {
     public void hello(){

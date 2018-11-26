@@ -3,5 +3,5 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!--控制反转-->
-    <bean id="user" class="com.guangfuxiong.test.User"/>
+    <bean id="user" class="com.guangfuxiong.Pojo.User"/>
 </beans>
