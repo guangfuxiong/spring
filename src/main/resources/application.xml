@@ -4,4 +4,20 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!--控制反转-->
     <bean id="user" class="com.guangfuxiong.Pojo.User"/>
+    <!--实例工厂创建对象
+		factory-bean:工厂对象的Id
+		factory-method:工厂对象的方法
+	 -->
+    <bean id="1" class="com.guangfuxiong.factory.InstanceFactory"/>
+    <bean id="calendar1" factory-bean="1" factory-method="getCalendar"></bean>
+
+    <!--通过静态工厂创建对象
+		id:对象的名称
+		class:静态工厂的类型
+		factory-method:创建对象的方法
+	  -->
+    <bean id="calendar2" class="com.guangfuxiong.factory.StaticFactory" factory-method="getCalendar"/>
+
+    <!--通过spring工厂创建对象-->
+    <bean id="calendar3" class="com.guangfuxiong.factory.SpringFactory"/>
 </beans>
