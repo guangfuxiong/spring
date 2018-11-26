@@ -4,9 +4,10 @@ import java.util.Calendar;
 
 public class StaticFactory {
     public StaticFactory() {
-        System.out.println("静态工厂");
+
     }
     public static Calendar getCalendar(){
+        System.out.println("静态工厂");
         return Calendar.getInstance();
     }
 }

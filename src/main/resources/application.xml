@@ -2,8 +2,12 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <!--控制反转-->
-    <bean id="user" class="com.guangfuxiong.Pojo.User"/>
+    <!--控制反转
+        scope="prototype" 表示对象是多例的
+		scope="singleton" 表示对象是单例的
+		默认不写的时候
+     -->
+    <bean id="user" class="com.guangfuxiong.Pojo.User" scope="singleton" lazy-init="false" init-method="init_1" destroy-method="des"/>
     <!--实例工厂创建对象
 		factory-bean:工厂对象的Id
 		factory-method:工厂对象的方法
@@ -20,4 +24,41 @@
 
     <!--通过spring工厂创建对象-->
     <bean id="calendar3" class="com.guangfuxiong.factory.SpringFactory"/>
+
+    <!--给容器对象赋值-->
+    <bean id="person" class="com.guangfuxiong.Pojo.Person">
+        <property name="name" value="张三"/>
+        <property name="age" value="12"/>
+        <property name="dog" ref="dog" />
+        <property name="list">
+            <list>
+                <value>某人</value>
+                <value>某物</value>
+                <value>某时</value>
+                <value>某地</value>
+            </list>
+        </property>
+        <property name="set">
+            <set>
+                <value>青蛙</value>
+                <value>蜻蜓</value>
+                <value>昆虫</value>
+            </set>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="名字" value="李四"/>
+                <entry key="年龄" value="13"/>
+                <entry key="住宅" value="北京"/>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="name">数据库</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="dog" class="com.guangfuxiong.Pojo.Dog"/>
+
+
 </beans>
