@@ -60,5 +60,14 @@
     </bean>
     <bean id="dog" class="com.guangfuxiong.Pojo.Dog"/>
 
-
+    <!--控制层、业务层、持久层的依赖注入-->
+    <bean id="userAction" class="com.guangfuxiong.action.UserAction">
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean id="userService" class="com.guangfuxiong.service.UserServiceImpl">
+        <property name="userDao" ref="userDao"/>
+    </bean>
+    <bean id="userDao" class="com.guangfuxiong.dao.UserDaoImpl">
+        <property name="user" ref="user"/>
+    </bean>
 </beans>

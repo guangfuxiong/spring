@@ -1,4 +1,5 @@
 import com.guangfuxiong.Pojo.Person;
+import com.guangfuxiong.action.UserAction;
 import org.junit.Before;
 import org.springframework.context.ApplicationContext;
 import com.guangfuxiong.Pojo.User;
@@ -48,5 +49,10 @@ public class Test {
     public void test5(){
         Person person = ac.getBean(Person.class);
         System.out.println(person);
+    }
+    @org.junit.Test
+    public void test6(){
+        UserAction userAction = ac.getBean(UserAction.class);
+        userAction.addUser();
     }
 }
