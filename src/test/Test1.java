@@ -1,20 +1,10 @@
 import com.guangfuxiong.Pojo.*;
 import com.guangfuxiong.action.UserAction;
 import com.guangfuxiong.dao.ProductDao;
-import org.junit.Before;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Calendar;
 
-public class Test {
-
-    //ApplicationContext ac = null;
-    ClassPathXmlApplicationContext ac=null;
-    @Before
-    public void testBefore(){
-        ac = new ClassPathXmlApplicationContext("application.xml");
-    }
+public class Test1 extends BaseTest{
     @org.junit.Test
     public void test(){
         //User user = (User)ac.getBean("user");//由容器获得
