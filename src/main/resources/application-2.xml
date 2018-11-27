@@ -27,4 +27,7 @@
         <entry key="地点" value="北京"/>
         <entry key="人物" value="小明"/>
     </util:map>
+
+    <!--开启多包扫描-->
+    <context:component-scan base-package="com.guangfuxiong.action,com.guangfuxiong.service,com.guangfuxiong.dao"/>
 </beans>

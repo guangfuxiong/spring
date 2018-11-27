@@ -2,6 +2,8 @@ import com.guangfuxiong.Pojo.BRid;
 import com.guangfuxiong.Pojo.Food;
 import com.guangfuxiong.Pojo.NBA;
 import com.guangfuxiong.Pojo.Tiger;
+import com.guangfuxiong.action.UserAction;
+import com.guangfuxiong.service.UserService;
 import org.junit.Test;
 
 public class Test2 extends BaseTest {
@@ -25,5 +27,14 @@ public class Test2 extends BaseTest {
     public void test3(){
         Food food = (Food)ac.getBean("food");
         System.out.println(food);
+    }
+    @Test
+    //测试注解分层
+    public void test4(){
+        UserAction userAction = (UserAction)ac.getBean("userAction");
+        userAction.addUser();
+
+        UserService userService = (UserService)ac.getBean("userA");
+        userService.addUser();
     }
 }

@@ -1,15 +1,19 @@
 package com.guangfuxiong.service;
 
-import com.guangfuxiong.dao.UserDaoImpl;
+import com.guangfuxiong.dao.UserDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service(value = "userA")
 public class UserServiceImpl implements UserService {
-    UserDaoImpl userDao;
+    @Autowired
+    UserDao userDao;
 
-    public UserDaoImpl getUserDao() {
+    public UserDao getUserDao() {
         return userDao;
     }
 
-    public void setUserDao(UserDaoImpl userDao) {
+    public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
     }
 
