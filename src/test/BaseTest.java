@@ -10,7 +10,9 @@ public class BaseTest {
         //Test1
         //ac = new ClassPathXmlApplicationContext("application-1.xml");
         //Test2
-        ac = new ClassPathXmlApplicationContext("application-2.xml");
+        //ac = new ClassPathXmlApplicationContext("application-2.xml");
+        //Test3-proxy
+        ac = new ClassPathXmlApplicationContext("application-proxy.xml");
     }
     @After
     public void testAfter(){
