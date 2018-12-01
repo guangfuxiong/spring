@@ -1,6 +1,6 @@
-package com.guangfuxiong.proxy.staticproxy.dao.impl;
+package com.guangfuxiong.proxy.proxy.dao.impl;
 
-import com.guangfuxiong.proxy.staticproxy.dao.UserDao;
+import com.guangfuxiong.proxy.proxy.dao.UserDao;
 import org.springframework.stereotype.Repository;
 
 @Repository

@@ -1,4 +1,4 @@
-package com.guangfuxiong.proxy.staticproxy.service;
+package com.guangfuxiong.proxy.proxy.service;
 
 public interface UserService {
     void addUser();

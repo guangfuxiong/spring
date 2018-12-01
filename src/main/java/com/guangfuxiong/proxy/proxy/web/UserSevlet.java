@@ -1,8 +1,7 @@
-package com.guangfuxiong.proxy.staticproxy.web;
+package com.guangfuxiong.proxy.proxy.web;
 
-import com.guangfuxiong.proxy.staticproxy.service.UserService;
+import com.guangfuxiong.proxy.proxy.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 @Controller

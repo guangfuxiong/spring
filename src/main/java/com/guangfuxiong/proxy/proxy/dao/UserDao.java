@@ -1,4 +1,4 @@
-package com.guangfuxiong.proxy.staticproxy.dao;
+package com.guangfuxiong.proxy.proxy.dao;
 
 public interface UserDao {
     void addUser();

@@ -1,7 +1,7 @@
-package com.guangfuxiong.proxy.staticproxy.service.impl;
+package com.guangfuxiong.proxy.proxy.service.impl;
 
-import com.guangfuxiong.proxy.staticproxy.dao.UserDao;
-import com.guangfuxiong.proxy.staticproxy.service.UserService;
+import com.guangfuxiong.proxy.proxy.dao.UserDao;
+import com.guangfuxiong.proxy.proxy.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

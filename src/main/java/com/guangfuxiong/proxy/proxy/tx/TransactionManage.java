@@ -1,8 +1,8 @@
-package com.guangfuxiong.proxy.staticproxy.tx;
+package com.guangfuxiong.proxy.proxy.tx;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("tx")
 public class TransactionManage {
 
     public void begin(){
