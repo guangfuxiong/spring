@@ -1,7 +1,7 @@
 
-import com.guangfuxiong.proxy.aop.server.ProductService;
-import com.guangfuxiong.proxy.aop.server.UserService;
-import com.guangfuxiong.proxy.aop.server.a.Hello;
+import com.guangfuxiong.proxy.aop.service.ProductService;
+import com.guangfuxiong.proxy.aop.service.UserService;
+import com.guangfuxiong.proxy.aop.service.a.Hello;
 import org.junit.Test;
 
 public class Test4_aop extends  BaseTest{

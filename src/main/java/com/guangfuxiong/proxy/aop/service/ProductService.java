@@ -1,4 +1,4 @@
-package com.guangfuxiong.proxy.aop.server;
+package com.guangfuxiong.proxy.aop.service;
 
 public interface ProductService {
     void addProduct();

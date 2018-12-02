@@ -1,6 +1,6 @@
-package com.guangfuxiong.proxy.aop.server.impl;
+package com.guangfuxiong.proxy.aop.service.impl;
 
-import com.guangfuxiong.proxy.aop.server.ProductService;
+import com.guangfuxiong.proxy.aop.service.ProductService;
 import org.springframework.stereotype.Service;
 
 @Service("productService")

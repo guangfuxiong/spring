@@ -36,6 +36,11 @@ public class TxAspect {
         System.out.println("异常信息为："+msg);
     }
     //后置通知
+    public void afterReturn(String msg){
+        System.out.println("后置通知");
+        System.out.println("后置消息："+msg);
+    }
+    //最终通知
     public void after(JoinPoint joinPoint){
         System.out.println("后置通知：完毕！");
         System.out.println("目标对象："+joinPoint.getTarget().getClass());

@@ -1,4 +1,4 @@
-package com.guangfuxiong.proxy.aop.server.a;
+package com.guangfuxiong.proxy.aop.service.a;
 
 import org.springframework.stereotype.Component;
 
