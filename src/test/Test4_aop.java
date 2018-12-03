@@ -24,4 +24,11 @@ public class Test4_aop extends  BaseTest{
         System.out.println(hello.getClass());
         hello.hello();
     }
+    //测试注解形式的AOP
+    @Test
+    public void test4(){
+        UserService userService = (UserService)ac.getBean("userService");
+        System.out.println(userService.getClass());
+        userService.addUser();//连接点
+    }
 }
