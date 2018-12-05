@@ -2,6 +2,7 @@
 import com.guangfuxiong.proxy.aop.service.ProductService;
 import com.guangfuxiong.proxy.aop.service.UserService;
 import com.guangfuxiong.proxy.aop.service.a.Hello;
+import com.guangfuxiong.proxy.aop.servlet.ProductServlet;
 import org.junit.Test;
 
 public class Test4_aop extends  BaseTest{
@@ -30,5 +31,11 @@ public class Test4_aop extends  BaseTest{
         UserService userService = (UserService)ac.getBean("userService");
         System.out.println(userService.getClass());
         userService.addUser();//连接点
+    }
+    //测试切面抛出异常
+    @Test
+    public void test5(){
+        ProductServlet productServlet = (ProductServlet)ac.getBean("productServlet");
+        productServlet.addProduct();
     }
 }
