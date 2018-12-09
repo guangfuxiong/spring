@@ -14,7 +14,9 @@ public class BaseTest {
         //Test3-proxy
         //ac = new ClassPathXmlApplicationContext("application-proxy.xml");
         //Test4-aop
-        ac = new ClassPathXmlApplicationContext("application-aop.xml");
+        //ac = new ClassPathXmlApplicationContext("application-aop.xml");
+        //Test5-pri
+        ac = new ClassPathXmlApplicationContext("application-justy.xml");
     }
     @After
     public void testAfter(){
