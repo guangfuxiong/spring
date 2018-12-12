@@ -23,6 +23,10 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-aspects:3.2.18.RELEASE" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.8.10" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.8.4" />
+          <element id="library" level="project" name="Maven: c3p0:c3p0:0.9.1.1" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.41" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:3.2.18.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:3.2.18.RELEASE" />
         </element>
       </element>
       <element id="directory" name="META-INF">

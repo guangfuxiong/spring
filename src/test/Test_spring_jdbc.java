@@ -1,5 +1,6 @@
 import com.guangfuxiong.springjdbc.mapper.UserMapper;
 import com.guangfuxiong.springjdbc.pojo.User;
+import com.guangfuxiong.springjdbc.servlet.UserServlet;
 import org.junit.Test;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -71,5 +72,14 @@ public class Test_spring_jdbc extends BaseTest {
         RowMapper rowMapper = new BeanPropertyRowMapper<User>(User.class);//该方法慢，建议手动封装
         User user = (User) jdbcTemplate_spring.queryForObject(sql1,rowMapper,1);
         System.out.println(user);
+    }
+    @Test
+    public void test6(){
+        UserServlet userServlet = (UserServlet)ac.getBean("userServlet");
+        User user = new User();
+        user.setName("张三");
+        user.setAge(33);
+        userServlet.addUser(user);
+        System.out.println("添加用户成功");
     }
 }
