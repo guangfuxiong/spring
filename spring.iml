@@ -21,6 +21,7 @@
           <file>file://$MODULE_DIR$/src/main/resources/application.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/application-aop.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/application-justy.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/application-spring-jdbc.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -53,5 +54,9 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-aspects:3.2.18.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.8.10" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.8.4" level="project" />
+    <orderEntry type="library" name="Maven: c3p0:c3p0:0.9.1.1" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.41" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:3.2.18.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-tx:3.2.18.RELEASE" level="project" />
   </component>
 </module>

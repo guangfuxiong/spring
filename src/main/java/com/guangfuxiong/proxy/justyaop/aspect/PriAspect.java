@@ -69,8 +69,9 @@ public class PriAspect {
             }
         }else {
             //这里表示不需要权限就可以直接访问
-            Object result = joinPoint.proceed();
-            return result;
+            //Object result = joinPoint.proceed();
+            System.out.println("抱歉，您没有权限修改");
+            return null;
         }
     }
 }

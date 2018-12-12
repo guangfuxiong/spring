@@ -17,4 +17,15 @@ public class Test_aop_pri extends BaseTest{
         PriList.setPriList(list);
         productServlet.updateProduct();
     }
+    @Test
+    public void test2(){
+        ProductServlet productServlet = (ProductServlet)ac.getBean("productServlet");
+        //为用户准备权限
+        List<String> list = new ArrayList<String>();
+        list.add("add");
+        list.add("delete");
+        list.add("update");
+        PriList.setPriList(list);
+        productServlet.addProduct();
+    }
 }
