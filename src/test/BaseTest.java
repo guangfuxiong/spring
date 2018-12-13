@@ -18,7 +18,9 @@ public class BaseTest {
         //Test5-pri
         //ac = new ClassPathXmlApplicationContext("application-justy.xml");
         //Test6-spring-jdbc
-        ac = new ClassPathXmlApplicationContext("application-spring-jdbc.xml");
+        //ac = new ClassPathXmlApplicationContext("application-spring-jdbc.xml");
+        //Test7-springmvc
+        ac = new ClassPathXmlApplicationContext("application-springmvc.xml");
     }
     @After
     public void testAfter(){

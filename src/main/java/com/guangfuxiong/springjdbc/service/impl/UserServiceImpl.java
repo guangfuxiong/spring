@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public List<User> findAll() {
         List<User> list = userDao.findAll();
-        int a = 1/0;
+        //int a = 1/0;
         return list;
     }
 
