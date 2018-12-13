@@ -76,10 +76,44 @@ public class Test_spring_jdbc extends BaseTest {
     @Test
     public void test6(){
         UserServlet userServlet = (UserServlet)ac.getBean("userServlet");
+        //增
         User user = new User();
-        user.setName("张三");
-        user.setAge(33);
+        user.setName("李大");
+        user.setAge(53);
         userServlet.addUser(user);
         System.out.println("添加用户成功");
+        //删
+        userServlet.delUserById(1);
+        System.out.println("删除成功");
+        //改
+        User userUpdate = new User();
+        userUpdate.setName("王五");
+        userUpdate.setAge(11);
+        userUpdate.setId(2);
+        userServlet.updateUser(userUpdate);
+        //查(所有)
+        List<User> list = userServlet.findUserAll();
+        System.out.println(list);
+        //查(单个)
+        User getUser = userServlet.findUserById(4);
+        System.out.println(getUser);
     }
+    //测试spring自带的事务管理
+    @Test
+    public void test7(){
+        UserServlet userServlet = (UserServlet)ac.getBean("userServlet");
+        //改
+        User userUpdate = new User();
+        userUpdate.setName("王器");
+        userUpdate.setAge(11);
+        userUpdate.setId(2);
+        userServlet.updateUser(userUpdate);
+    }
+    @Test
+    public void test8(){
+        UserServlet userServlet = (UserServlet)ac.getBean("userServlet");
+        //查
+        System.out.println(userServlet.findUserAll());
+    }
+
 }

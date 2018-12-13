@@ -18,7 +18,6 @@
     <facet type="Spring" name="Spring">
       <configuration>
         <fileset id="fileset" name="Spring Application Context" removed="false">
-          <file>file://$MODULE_DIR$/src/main/resources/application.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/application-aop.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/application-justy.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/application-spring-jdbc.xml</file>
@@ -36,7 +35,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
-    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="1.7" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:3.2.18.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:3.2.18.RELEASE" level="project" />

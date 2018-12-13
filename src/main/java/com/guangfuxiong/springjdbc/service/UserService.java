@@ -2,10 +2,12 @@ package com.guangfuxiong.springjdbc.service;
 
 import com.guangfuxiong.springjdbc.pojo.User;
 
+import java.util.List;
+
 public interface UserService {
     void addUser(User user);
     void delUserById(int id);
     void updateUser(User user);
-    void findAll();
-    void findUserById();
+    List<User> findAll();
+    User findUserById(int id);
 }
