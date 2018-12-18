@@ -15,7 +15,7 @@
     <!--添加组件扫描，@controller等使注解生效-->
     <context:component-scan base-package="com.guangfuxiong.springmvc"/>
     <!--开启SpringMVC注解  -->
-    <mvc:annotation-driven/>
+    <!--<mvc:annotation-driven/>-->
     <!--配置映射关系-->
     <bean id="/hello.do" class="com.guangfuxiong.springmvc.controller.HelloController"/>
     <!--配置视图解析器-->
