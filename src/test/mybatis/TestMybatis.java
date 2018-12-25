@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -74,5 +75,66 @@ public class TestMybatis{
         System.out.println(rows);
         session.commit();
     }
+    //根据年龄条件查询
+    @Test
+    public void test05(){
+        int minAge = 15;
+        int maxAge = 60;
+        Map map = new HashMap();
+        map.put("minAge",minAge);
+        map.put("maxAge",maxAge);
+        SqlSession session = sqlSessionFactory.openSession();
+        //将User参数传递给mybatis
+        List<User> list = session.selectList("mybatis.mapper.findUserByKeyWords",map);
+        System.out.println(list);
+    }
+    //根据年龄排序
+    @Test
+    public void test06(){
+        String cloumn = "age";
+        Map map = new HashMap();
+        map.put("cloumn",cloumn);
+        SqlSession session = sqlSessionFactory.openSession();
+        //将User参数传递给mybatis
+        List<User> list = session.selectList("mybatis.mapper.findUserOrderByAge",map);
+        System.out.println(list);
+    }
+    //动态更新
+    @Test
+    public void test07(){
+        User user = new User();
+        user.setName("绿牛");
+        user.setSex("女");
+        user.setId(6);
 
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        int rows = sqlSession.update("mybatis.mapper.dynamicUpdateById",user);
+        System.out.println("受影响行数："+rows);
+        sqlSession.commit();
+    }
+    //动态查询
+    @Test
+    public void test08(){
+        User user = new User();
+        user.setAge(15);
+        user.setName("小黄");
+
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        List<User> list = sqlSession.selectList("mybatis.mapper.dynamicFindUser",user);
+        System.out.println(list);
+    }
+    //测试批量操作
+    @Test
+    public void test09(){
+        //Integer[] ids = {2,3,4};
+        List ids = new ArrayList();
+        ids.add(2);
+        ids.add(3);
+        ids.add(4);
+        Map map = new HashMap();
+        map.put("ids",ids);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        List<User> list = sqlSession.selectList("mybatis.mapper.findUserByDuo",ids);
+        System.out.println(list);
+    }
 }

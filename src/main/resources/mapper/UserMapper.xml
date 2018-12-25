@@ -28,4 +28,52 @@
     <update id="updateUser" parameterType="com.guangfuxiong.mybaits.pojo.User">
         update user set name = #{name},age = #{age},sex = #{sex} where id = #{id}
     </update>
+    <!--根据年龄条件查询用户-->
+    <select id="findUserByKeyWords" resultType="com.guangfuxiong.mybaits.pojo.User">
+        select * from user where age > #{minAge}
+        /*使用<![CDATA[]]>来包含不被xml解析器解析的内容*/
+        <![CDATA[and age < #{maxAge}]]>
+    </select>
+    <!--测试数据库中的列名的使用  -->
+    <select id="findUserOrderByAge" resultType="com.guangfuxiong.mybaits.pojo.User">
+        select * from user order by ${cloumn} desc
+    </select>
+    <!--动态更新-->
+    <update id="dynamicUpdateById" parameterType="com.guangfuxiong.mybaits.pojo.User">
+        update user
+        <set>
+            <!--动态更新 <if test="对象的属性  做判断">-->
+            <if test="name!=null">name = #{name},</if>
+            <if test="age!=null">age = #{age},</if>
+            <if test="sex!=null">sex = #{sex}</if>
+        </set>
+        where id = #{id}
+    </update>
+    <!--动态查询-->
+    <select id="dynamicFindUser" resultType="com.guangfuxiong.mybaits.pojo.User">
+        select * from user
+        <where>
+            <if test="name!=null">name = #{name}</if>
+            <if test="age!=null">and age = #{age}</if>
+            <if test="sex=null">and sex = #{sex}</if>
+            <if test="id!=null">and id = #{id}</if>
+        </where>
+    </select>
+    
+    <!--批量操作-->
+    <select id="findUserByDuo" resultType="com.guangfuxiong.mybaits.pojo.User">
+        select * from user where id in (
+        <!--批量删除
+             collection的值：
+	 	     数组: array
+	 	     List集合   list
+	 	     Map集合    map中的key
+
+	 	    open="(" close=")" 如果语法允许 可以省略
+	    -->
+        <foreach collection="list" item="key" separator=",">
+            #{key}
+        </foreach>
+        )
+    </select>
 </mapper>
