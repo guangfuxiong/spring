@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+	namespace=""唯一标识当前的映射文件  id
+	Mapper的主要作用 就是将结果集完成自动的映射.其中编写sql语句
+  -->
+<mapper namespace="mybatis.mapper">
+    <!--Mybaits中不同的sql语句对应不同的标签.  -->
+    <!-- <insert id="="></insert>
+    <delete id=""></delete>
+    <select id=""></select>
+    <update id=""></update> -->
+    <!--查询用户的全部信息  -->
+    <select id="findAll" resultType="com.guangfuxiong.mybaits.pojo.User">
+        select * from user
+    </select>
+    <!--根据名字查询用户信息  -->
+    <select id="findUserByName" resultType="com.guangfuxiong.mybaits.pojo.User">
+        select * from user where name = #{name}
+    </select>
+    <!--新增用户-->
+    <insert id="addUser" parameterType="com.guangfuxiong.mybaits.pojo.User">
+        insert into user (id,name,age,sex) values (null,#{name},#{age},#{sex})
+    </insert>
+    <!--更新用户-->
+    <update id="updateUser" parameterType="com.guangfuxiong.mybaits.pojo.User">
+        update user set name = #{name},age = #{age},sex = #{sex} where id = #{id}
+    </update>
+</mapper>
