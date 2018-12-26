@@ -63,7 +63,7 @@
     <!--批量操作-->
     <select id="findUserByDuo" resultType="com.guangfuxiong.mybaits.pojo.User">
         select * from user where id in (
-        <!--批量删除
+        <!--批量操作
              collection的值：
 	 	     数组: array
 	 	     List集合   list

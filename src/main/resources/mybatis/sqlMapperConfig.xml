@@ -3,6 +3,20 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <!--配置mybatis二级缓存-->
+    <settings>
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+    
+    <!--定义别名标签-->
+    <typeAliases>
+        <!--
+			alias="" 别名 类名
+			type=""  类型 包名.类名
+		  -->
+        <typeAlias alias="User" type="com.guangfuxiong.mybaits.pojo.User"/>
+    </typeAliases>
+
     <!--配置数据源(这里是mybatis自带的数据连接池)-->
     <environments default="mysql">
         <environment id="mysql">
@@ -25,8 +39,9 @@
             </dataSource>
         </environment>
     </environments>
-    <!--映射文件-->
+    <!--映射文件,指定映射文件的位置-->
     <mappers>
         <mapper resource="mapper/UserMapper.xml"/>
+        <mapper resource="mapper/UserMapperAliasAndCatch.xml"/>
     </mappers>
 </configuration>

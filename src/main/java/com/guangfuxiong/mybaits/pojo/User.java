@@ -1,6 +1,8 @@
 package com.guangfuxiong.mybaits.pojo;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable{
     private Integer id;
     private String name;
     private Integer age;  //最好写成包装类型

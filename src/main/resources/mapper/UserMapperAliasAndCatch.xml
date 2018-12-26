@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--<mapper namespace="mybatis.mapper.aliascatch"> 命名空间本质上可以随意，只有唯一即可。如果使用Mapper接口的形式，则必须有Mapper接口类进行绑定如下：-->
+<mapper namespace="com.guangfuxiong.mybaits.pojo.UserMapper">
+    <!--开启二级缓存-->
+    <cache/>
+
+    <!--sql的复用-->
+    <sql id="common">
+        select * from user
+    </sql>
+
+    <select id="findUserByAge" resultType="User">
+        <include refid="common"/> where age = #{age}
+    </select>
+
+    <select id="findUserByName" resultType="User">
+        <include refid="common"/> where name = #{age}
+    </select>
+
+    <!--测试一级缓存-->
+    <select id="findAll" resultType="User">
+        <include refid="common"/>
+    </select>
+</mapper>
