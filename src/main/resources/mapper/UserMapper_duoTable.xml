@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guangfuxiong.mybaits.pojo.UserMapper_duoTable">
+    <resultMap id="userRM" type="User" autoMapping="true">
+        <!--主键的封装-->
+        <result column="id" property="id"/>
+        <!--结果集封装-->
+        <result column="name" property="name"/>
+        <result column="age" property="age"/>
+        <result column="sex" property="sex"/>
+
+        <!--一对一关联封装 表示需要封装的对象的属性-->
+        <association property="dept" javaType="Dept">
+            <result column="dept_id" property="deptId"/>
+            <result column="dept_name" property="deptName" />
+        </association>
+    </resultMap>
+
+    <!--查询所有用户信息，及所在部门-->
+    <select id="findAll" resultMap="userRM">
+        select u.*,d.dept_name from user u
+        left join
+        dept d
+        on u.dept_id = d.dept_id
+    </select>
+</mapper>

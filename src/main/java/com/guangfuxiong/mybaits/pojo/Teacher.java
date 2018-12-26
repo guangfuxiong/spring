@@ -1,23 +1,9 @@
 package com.guangfuxiong.mybaits.pojo;
 
-import java.io.Serializable;
-
-public class User implements Serializable{
+public class Teacher {
     private Integer id;
     private String name;
-    private Integer age; //最好写成包装类型
     private String sex;
-    private Dept dept; //一个用户对应一个部门   一对一关联
-
-    public Dept getDept() {
-        return dept;
-    }
-
-    public void setDept(Dept dept) {
-        this.dept = dept;
-    }
-
-
 
     public Integer getId() {
         return id;
@@ -35,14 +21,6 @@ public class User implements Serializable{
         this.name = name;
     }
 
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
     public String getSex() {
         return sex;
     }
@@ -53,12 +31,10 @@ public class User implements Serializable{
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Teacher{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", age=" + age +
                 ", sex='" + sex + '\'' +
-                ", dept=" + dept +
                 '}';
     }
 }

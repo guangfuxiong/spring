@@ -15,6 +15,7 @@
 			type=""  类型 包名.类名
 		  -->
         <typeAlias alias="User" type="com.guangfuxiong.mybaits.pojo.User"/>
+        <typeAlias alias="Dept" type="com.guangfuxiong.mybaits.pojo.Dept"/>
     </typeAliases>
 
     <!--配置数据源(这里是mybatis自带的数据连接池)-->
@@ -24,7 +25,7 @@
             <!--池化的  -->
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/spring?characterEncoding=utf-8"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf-8"/>
                 <property name="username" value="root"/>
                 <property name="password" value="root"/>
             </dataSource>
@@ -43,5 +44,6 @@
     <mappers>
         <mapper resource="mapper/UserMapper.xml"/>
         <mapper resource="mapper/UserMapperAliasAndCatch.xml"/>
+        <mapper resource="mapper/UserMapper_duoTable.xml"/>
     </mappers>
 </configuration>
