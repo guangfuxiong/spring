@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guangfuxiong.mybaits.pojo.StudentMapper_duoTable">
+    <resultMap id="stuRM" type="Student">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="age" property="age"/>
+        <collection property="teachers" ofType="Teacher">
+            <result column="t_id" property="id"/>
+            <result column="t_name" property="name"/>
+            <result column="t_sex" property="sex"/>
+        </collection>
+    </resultMap>
+    <select id="findAll" resultMap="stuRM">/*resultType="map"也可以*/
+        select * from
+        (select * from student s left join s_t on s.id = s_t.student_id) s
+        left join
+        teacher t
+        on
+        s.teacher_id = t.t_id
+    </select>
+</mapper>

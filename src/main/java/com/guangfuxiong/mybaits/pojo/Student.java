@@ -1,9 +1,21 @@
 package com.guangfuxiong.mybaits.pojo;
 
+import java.util.List;
+
 public class Student {
     private Integer id;
     private String name;
     private Integer age;
+
+    private List<Teacher> teachers;//一对多关联
+
+    public List<Teacher> getTeachers() {
+        return teachers;
+    }
+
+    public void setTeachers(List<Teacher> teachers) {
+        this.teachers = teachers;
+    }
 
     public Integer getId() {
         return id;
@@ -35,6 +47,7 @@ public class Student {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
+                ", teachers=" + teachers +
                 '}';
     }
 }
