@@ -12,12 +12,9 @@
           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
        ">
 
-    <!--添加组件扫描，@controller等使注解生效-->
-    <context:component-scan base-package="com.guangfuxiong.springmvc"/>
     <!--开启SpringMVC注解  -->
     <mvc:annotation-driven/>
-    <!--配置映射关系-->
-    <bean id="/hello.do" class="com.guangfuxiong.springmvc.controller.HelloController"/>
+
     <!--配置视图解析器-->
     <bean id="view" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/"/>
