@@ -6,12 +6,23 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   <display-name>Archetype Created Web Application</display-name>
+  <!--初始化spring容器-->
+  <!--<context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:springSSM/applicationMVC.xml,classpath:springSSM/applicationContext.xml</param-value>
+  </context-param>-->
+  <!--配置监听器 让spring配置文件生效-->
+  <!--<listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>-->
+  <!--配置前端控制器springMVC-->
   <servlet>
     <servlet-name>springmvc</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>classpath:application-springmvc.xml</param-value>
+      <!--<param-value>classpath:application-springmvc.xml</param-value>-->
+      <param-value>classpath:springSSM/applicationMVC.xml</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
@@ -19,6 +30,7 @@
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
 
+  <!--配置过滤器-->
   <filter>
     <filter-name>characterEncod</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

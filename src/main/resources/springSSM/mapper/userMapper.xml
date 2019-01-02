@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guangfuxiong.springSSM.dao.UserDao">
+    <resultMap id="userRM" type="User" autoMapping="true">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="age" property="age"/>
+        <result column="sex" property="sex"/>
+    </resultMap>
+    <sql id="common">
+        select * from User
+    </sql>
+    <select id="findAll" resultType="User">
+        <include refid="common"/>
+    </select>
+</mapper>
