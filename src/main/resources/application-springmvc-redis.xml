@@ -13,6 +13,7 @@
     <!--整合springmvc-->
     <!--配置映射-->
     <mvc:annotation-driven/>
+    <context:annotation-config />
     <!--配置视图解析器-->
     <bean id="view" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/"/>
@@ -31,7 +32,7 @@
         <property name="testOnBorrow" value="${test_on_borrow}"/>
     </bean>
     <!--2.2、创建Jedis连接工厂对象用于获取数据库连接-->
-    <bean id="conncetionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+    <bean id="connectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
         <property name="hostName" value="${addr}"/>
         <property name="port" value="${port}"/>
         <property name="password" value="${auth}"/>
@@ -40,7 +41,7 @@
     </bean>
     <!--2.3、创建redisTemplate对象，用于直接操作数据库-->
     <bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">
-        <property name="connectionFactory" ref="conncetionFactory"/>
+        <property name="connectionFactory" ref="connectionFactory"/>
         <property name="keySerializer">
             <bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
         </property>
@@ -54,5 +55,4 @@
             <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
         </property>
     </bean>
-
 </beans>

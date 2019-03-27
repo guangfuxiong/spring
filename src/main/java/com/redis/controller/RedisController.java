@@ -1,11 +1,15 @@
 package com.redis.controller;
 
+import com.redis.Emp;
+import com.redis.RetResult;
 import com.redis.service.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 @Controller
 public class RedisController {
@@ -29,6 +33,25 @@ public class RedisController {
     @ResponseBody
     public String addString(){
         redisService.addEmp();
+        return "成功";
+    }
+
+    @RequestMapping(value = "listEmp.do")
+    @ResponseBody
+    public RetResult listEmp(){
+        List<Emp> list = redisService.listEmp();
+        RetResult retResult = new RetResult();
+        retResult.setMsg("查询成功");
+        retResult.setSuccess("1");
+        retResult.setObject(list);
+        System.out.println(retResult);
+        return retResult;
+    }
+
+    @RequestMapping(value = "delEmpById.do",produces = "application/json;uft-8")
+    @ResponseBody
+    public String delEmpById(String id){
+        redisService.delEmpById(id);
         return "成功";
     }
 }

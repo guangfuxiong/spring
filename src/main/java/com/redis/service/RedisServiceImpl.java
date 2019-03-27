@@ -25,10 +25,24 @@ public class RedisServiceImpl implements RedisService {
         emp.setName("孙广才");
         emp.setAddress("南门");
         emp.setAge(54);
-        redisTemplate.opsForHash().put("emp","emp-map2",emp);
+        redisTemplate.opsForHash().put("emp",id.toString(),emp);
+    }
+
+    @Override
+    public List<Emp> listEmp() {
         System.out.println("#############################################################");
         //System.out.println(redisTemplate.opsForHash().get("emp","emp-map1"));
-        List<Emp> list =  (List<Emp>)redisTemplate.opsForHash().values("emp");
+        List<Emp> list =  redisTemplate.opsForHash().values("emp");
+        System.out.println(list);
+        System.out.println("#############################################################");
+        return  list;
+    }
+
+    @Override
+    public void delEmpById(String id){
+        redisTemplate.opsForHash().delete("emp",id);
+        System.out.println("#############################################################");
+        List<Emp> list =  redisTemplate.opsForHash().values("emp");
         System.out.println(list);
         System.out.println("#############################################################");
     }
