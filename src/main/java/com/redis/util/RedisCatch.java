@@ -35,6 +35,7 @@ public class RedisCatch implements Cache{
 
     @Override
     public Object getObject(Object o) {
+
         return null;
     }
 

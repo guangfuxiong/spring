@@ -48,10 +48,22 @@ public class RedisController {
         return retResult;
     }
 
-    @RequestMapping(value = "delEmpById.do",produces = "application/json;uft-8")
+    @RequestMapping(value = "delEmpById.do")
     @ResponseBody
     public String delEmpById(String id){
         redisService.delEmpById(id);
+        return "成功";
+    }
+
+    @RequestMapping(value = "updateEmpById.do")
+    @ResponseBody
+    public String updateEmpById(String id,String name,String age,String adress){
+        Emp emp = new Emp();
+        emp.setId(6);
+        emp.setAddress(adress);
+        emp.setAge(Integer.parseInt(age));
+        emp.setName(name);
+        redisService.updateEmpById(id,emp);
         return "成功";
     }
 }

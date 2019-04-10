@@ -46,4 +46,9 @@ public class RedisServiceImpl implements RedisService {
         System.out.println(list);
         System.out.println("#############################################################");
     }
+
+    @Override
+    public void updateEmpById(String id, Emp emp) {
+        redisTemplate.opsForHash().put("emp",id,emp);
+    }
 }
