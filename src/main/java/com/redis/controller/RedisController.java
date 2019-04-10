@@ -16,7 +16,7 @@ public class RedisController {
     @Autowired
     private RedisService redisService;
 
-    @RequestMapping(value = "hello.do",method = RequestMethod.GET,produces = "application/json;utf-8")
+    @RequestMapping(value = "hello.do",method = RequestMethod.GET,produces = "application/json;charset=utf-8")
     @ResponseBody
     public String hello(){
         return "hello，spring整合redis";
@@ -29,7 +29,7 @@ public class RedisController {
         return "成功";
     }
 
-    @RequestMapping(value = "addEmp.do")
+    @RequestMapping(value = "addEmp.do",produces = "application/json;charset=utf-8")
     @ResponseBody
     public String addString(){
         redisService.addEmp();
@@ -48,10 +48,22 @@ public class RedisController {
         return retResult;
     }
 
-    @RequestMapping(value = "delEmpById.do",produces = "application/json;uft-8")
+    @RequestMapping(value = "delEmpById.do",produces = "application/json;charset=utf-8")
     @ResponseBody
     public String delEmpById(String id){
         redisService.delEmpById(id);
+        return "成功";
+    }
+
+    @RequestMapping(value = "updateEmpById.do",produces = "application/json;charset=utf-8")
+    @ResponseBody
+    public String updateEmpById(String id,String name,String age,String address){
+        Emp emp = new Emp();
+        emp.setId(Integer.parseInt(id));
+        emp.setAge(Integer.parseInt(age));
+        emp.setName(name);
+        emp.setAddress(address);
+        redisService.updateEmpById(emp);
         return "成功";
     }
 }

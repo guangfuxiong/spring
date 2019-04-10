@@ -21,7 +21,7 @@ public class RedisServiceImpl implements RedisService {
     @Override
     public void addEmp(){
         Emp emp = new Emp();
-        emp.setId(id++);
+        emp.setId(++id);
         emp.setName("孙广才");
         emp.setAddress("南门");
         emp.setAge(54);
@@ -38,12 +38,16 @@ public class RedisServiceImpl implements RedisService {
         return  list;
     }
 
+
+
+
     @Override
     public void delEmpById(String id){
         redisTemplate.opsForHash().delete("emp",id);
-        System.out.println("#############################################################");
-        List<Emp> list =  redisTemplate.opsForHash().values("emp");
-        System.out.println(list);
-        System.out.println("#############################################################");
+    }
+
+    @Override
+    public void updateEmpById(Emp emp) {
+        redisTemplate.opsForHash().put("emp",emp.getId().toString(),emp);
     }
 }

@@ -15,8 +15,8 @@
     <!--配置切面（配置aop事务管理）-->
     <!--<aop:config>
         &lt;!&ndash;配置切入点（匹配规则）&ndash;&gt;
-        &lt;!&ndash;<aop:pointcut id="pc" expression="within(service.*)"/>&ndash;&gt;
-        <aop:pointcut id="pc" expression="execution(* com.guangfuxiong.proxy.aop.service..*.*(..))"/>
+        &lt;!&ndash;<aop:pointcut id="pc" expression="within(Service.*)"/>&ndash;&gt;
+        <aop:pointcut id="pc" expression="execution(* com.guangfuxiong.proxy.aop.Service..*.*(..))"/>
         &lt;!&ndash;配置单个切面&ndash;&gt;
         &lt;!&ndash;<aop:aspect ref="txAspect">
             &lt;!&ndash;前置通知配置&ndash;&gt;

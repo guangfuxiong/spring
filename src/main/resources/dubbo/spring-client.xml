@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+       http://www.springframework.org/schema/mvc  http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+       http://code.alibabatech.com/schema/dubbo  http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+">
+    <!--1、添加包扫描-->
+    <context:component-scan base-package="com.dubbo"/>
+
+    <!--2、dubbo客户端配置-->
+    <!--2.1消费方应用名称，用于计算依赖关系，不是匹配条件，不要与提供方一样-->
+    <dubbo:application name="dubboclient"/>
+    <!--2.2、使用multicast广播注册中心暴露发现服务地址-->
+    <dubbo:registry address="multicast://224.5.6.7:2181"/>
+        <!--2.2.1、指定传输层通讯协议-->
+        <dubbo:protocol name="dubbo" port="20881"/>
+        <dubbo:protocol name="rmi" port="1010"/>
+    <!--2.3、生成远程服务代理，可以和本地bean一样使用helloService-->
+    <dubbo:reference interface="com.dubbo.service.IHelloService" id="helloService"/>
+        <!--2.3.2、当一个接口有多种实现时-->
+        <dubbo:reference interface="com.dubbo.service.IHelloService" id="helloService1" group="group1" protocol="dubbo"/>
+        <dubbo:reference interface="com.dubbo.service.IHelloService" id="helloService2" group="group2" protocol="rmi"/>
+
+    <!--3、 配置超时时间、重试次数、服务提供方检查
+        timeout：可以设置duboo调用的超时时间
+        retries ：可以设置重试次数
+        check：启动的是是否检查提供方是否存在
+    -->
+    <dubbo:consumer timeout="10000" retries="1" check="true"/>
+</beans>

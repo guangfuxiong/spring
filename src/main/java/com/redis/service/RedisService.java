@@ -9,4 +9,5 @@ public interface RedisService {
     void addEmp();
     List<Emp> listEmp();
     void delEmpById(String id);
+    void updateEmpById(Emp emp);
 }

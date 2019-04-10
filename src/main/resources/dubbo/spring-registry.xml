@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+       http://www.springframework.org/schema/mvc  http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+       http://code.alibabatech.com/schema/dubbo  http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+">
+    <!--1、添加包扫描-->
+    <context:component-scan base-package="com.dubbo"/>
+
+    <!--2、dubbo服务配置-->
+    <!--2.1提供方应用名称-->
+    <dubbo:application name="dubboserver"/>
+    <!--2.2、dubbo注册中心-->
+    <dubbo:registry address="multicast://224.5.6.7:2181"/>
+    <!--2.3、用dubbo协议在20880端口暴露服务。配置线程数，Dubbo默认的线程池是200，可根据实际情况来配置线程个数。-->
+    <dubbo:protocol name="dubbo" port="20880" threads="400"/>
+        <!--2.3.1、不同服务不同端口-->
+        <dubbo:protocol name="rmi" port="1099"/>
+    <!--2.4、声明一个普通的bean-->
+    <bean id="helloService" class="com.dubbo.service.impl.HelloServiceImpl"></bean>
+        <!--2.4.1、当一个接口有多种实现时-->
+        <bean id="helloService1" class="com.dubbo.service.impl.HelloService1Impl"/>
+        <bean id="helloService2" class="com.dubbo.service.impl.HelloService2Impl"/>
+
+
+    <!--3、声明dubbo服务-->
+    <dubbo:service  interface="com.dubbo.service.IHelloService" ref="helloService"/>
+        <!--3.1、当一个接口有多种实现时，可以用group实现-->
+        <dubbo:service interface="com.dubbo.service.IHelloService" ref="helloService1" group="group1" protocol="dubbo,rmi"/>
+        <dubbo:service interface="com.dubbo.service.IHelloService" ref="helloService2" group="group2" protocol="dubbo"/>
+</beans>
