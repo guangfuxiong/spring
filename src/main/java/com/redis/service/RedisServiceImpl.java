@@ -50,4 +50,9 @@ public class RedisServiceImpl implements RedisService {
     public void updateEmpById(Emp emp) {
         redisTemplate.opsForHash().put("emp",emp.getId().toString(),emp);
     }
+
+    @Override
+    public void updateEmpById(String id, Emp emp) {
+        redisTemplate.opsForHash().put("emp",id,emp);
+    }
 }

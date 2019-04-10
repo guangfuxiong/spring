@@ -13,7 +13,7 @@
     <!--整合springmvc-->
     <!--配置映射-->
     <mvc:annotation-driven/>
-    <context:annotation-config />
+    <context:annotation-config/>
     <!--配置视图解析器-->
     <bean id="view" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/"/>
@@ -54,5 +54,10 @@
         <property name="hashValueSerializer">
             <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
         </property>
+    </bean>
+
+    <!--mybatis二级缓存：使用RedisCatch.jedisConnectionFactory的静态注入，从而使mybaits实现第三方缓存-->
+    <bean id="redisCatchTransfer" class="com.redis.util.RedisCatchTransfer">
+        <property name="jedisConnectionFactory" ref="connectionFactory"/>
     </bean>
 </beans>
