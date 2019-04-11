@@ -3,7 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.webcacheredis.dao.ManagerDao">
-    <cache type="com.webcacheredis.util.RedisCatch"/>
+    <!--基于spring注解的缓存，要注释掉cache标签-->
+    <!--<cache type="com.webcacheredis.util.RedisCatch"/>-->
     <insert id="addManager" parameterType="com.webcacheredis.bean.Manager">
         INSERT INTO manager VALUES (null,#{username},#{password},#{type},#{hid},#{state});
     </insert>

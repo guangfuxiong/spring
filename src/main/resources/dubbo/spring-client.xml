@@ -25,11 +25,12 @@
         <!--2.3.2、当一个接口有多种实现时-->
         <dubbo:reference interface="com.dubbo.service.IHelloService" id="helloService1" group="group1" protocol="dubbo"/>
         <dubbo:reference interface="com.dubbo.service.IHelloService" id="helloService2" group="group2" protocol="rmi"/>
-
-    <!--3、 配置超时时间、重试次数、服务提供方检查
-        timeout：可以设置duboo调用的超时时间
-        retries ：可以设置重试次数
-        check：启动的是是否检查提供方是否存在
+    
+    <!--
+        3、 配置超时时间、重试次数、服务提供方检查
+            timeout：可以设置duboo调用的超时时间
+            retries ：可以设置重试次数
+            check：启动的是是否检查提供方是否存在
     -->
     <dubbo:consumer timeout="10000" retries="1" check="true"/>
 </beans>
