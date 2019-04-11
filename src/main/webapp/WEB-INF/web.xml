@@ -23,7 +23,8 @@
       <param-name>contextConfigLocation</param-name>
       <!--<param-value>classpath:application-springmvc.xml</param-value>-->
       <!--<param-value>classpath:springSSM/applicationMVC.xml</param-value>-->
-      <param-value>classpath:application-springmvc-redis.xml</param-value>
+      <!--<param-value>classpath:application-springmvc-redis.xml</param-value>-->
+      <param-value>classpath:webcacheRedis/spring-mvc.xml</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
