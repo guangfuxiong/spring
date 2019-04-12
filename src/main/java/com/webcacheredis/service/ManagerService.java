@@ -10,4 +10,6 @@ import java.util.List;
 public interface ManagerService {
     void addManager(Manager manager);
     public List<Manager> listManager();
+    Manager findManagerById(Integer oid);
+    void updateManager(Manager manager);
 }

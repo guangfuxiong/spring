@@ -11,4 +11,11 @@
     <select id="listManager" resultType="com.webcacheredis.bean.Manager">
         select * from manager
     </select>
+    <select id="findManagerById" parameterType="Integer" resultType="com.webcacheredis.bean.Manager">
+        select * from manager where oid = #{oid}
+    </select>
+    <update id="updateManager" parameterType="com.webcacheredis.bean.Manager">
+        update manager set username=#{username},password=#{password},type=#{type}
+						   ,hid=#{hid},state=#{state} where oid=#{oid}
+    </update>
 </mapper>

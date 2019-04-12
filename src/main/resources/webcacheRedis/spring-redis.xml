@@ -52,10 +52,10 @@
         <property name="defaultExpiration" value="${redis.expiration}" />
     </bean>
     <!--spring缓存注解,对spring版本有要求-->
-   <!-- <cache:annotation-driven/>-->
-    <bean id="redisCacheConfig" class="com.webcacheredis.redis.RedisCacheConfig">
+     <cache:annotation-driven/>
+    <!--<bean id="redisCacheConfig" class="com.webcacheredis.redis.RedisCacheConfig">
         <constructor-arg ref="connectionFactory" />
         <constructor-arg ref="redisTemplate" />
         <constructor-arg ref="cacheManager" />
-    </bean>
+    </bean>-->
 </beans>

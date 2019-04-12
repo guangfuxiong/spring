@@ -12,4 +12,6 @@ public interface ManagerDao {
      * @return 数量
      */
     public List<Manager> listManager();
+    public Manager findManagerById(Integer oid);
+    public void updateManager(Manager manager);
 }

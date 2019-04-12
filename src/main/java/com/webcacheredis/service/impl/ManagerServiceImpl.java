@@ -24,7 +24,21 @@ public class ManagerServiceImpl implements ManagerService {
     }
 
     @Override
+    @Cacheable
     public List<Manager> listManager() {
         return managerDao.listManager();
+    }
+
+    @Override
+    @Cacheable(value = {"managerInfo"},key = "'id_'+#oid")
+    public Manager findManagerById(Integer oid) {
+        System.out.println("findManagerById~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        return managerDao.findManagerById(oid);
+    }
+
+    @Override
+    @Cacheable()
+    public void updateManager(Manager manager) {
+        managerDao.updateManager(manager);
     }
 }

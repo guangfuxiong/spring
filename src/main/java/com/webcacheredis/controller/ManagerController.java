@@ -47,4 +47,30 @@ public class ManagerController {
         }
         return rb;
     }
+
+    @RequestMapping(value="/findManagerById.do")
+    @ResponseBody
+    public ResponseBean findManagerById(Integer oid){
+        ResponseBean rb = new ResponseBean();
+        try {
+            rb.setObject(managerService.findManagerById(oid));
+        } catch (Exception e) {
+            rb.setStatus(0);
+            e.printStackTrace();
+        }
+        return rb;
+    }
+
+    @RequestMapping(value="/updateManager")
+    @ResponseBody
+    public ResponseBean updateManager(Manager manager){
+        ResponseBean rb = new ResponseBean();
+        try {
+            managerService.updateManager(manager);
+        } catch (Exception e) {
+            rb.setStatus(0);
+            e.printStackTrace();
+        }
+        return rb;
+    }
 }
