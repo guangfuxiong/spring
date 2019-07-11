@@ -27,7 +27,7 @@
     <!--2.3、创建redisTemplate对象，用于直接操作数据库-->
     <bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">
         <property name="connectionFactory" ref="connectionFactory"/>
-        <property name="keySerializer">
+        <!--<property name="keySerializer">
             <bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
         </property>
         <property name="hashKeySerializer">
@@ -38,7 +38,7 @@
         </property>
         <property name="hashValueSerializer">
             <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
-        </property>
+        </property>-->
     </bean>
 
     <!--mybatis二级缓存：使用RedisCatch.jedisConnectionFactory的静态注入，从而使mybaits实现第三方缓存-->
@@ -47,12 +47,12 @@
     </bean>-->
 
     <!-- 配置RedisCacheManager-->
-    <bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager">
+    <!--<bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager">
         <constructor-arg name="template" ref="redisTemplate" />
         <property name="defaultExpiration" value="${redis.expiration}" />
-    </bean>
+    </bean>-->
     <!--spring缓存注解,对spring版本有要求-->
-     <cache:annotation-driven/>
+    <!--<cache:annotation-driven/>-->
     <!--<bean id="redisCacheConfig" class="com.webcacheredis.redis.RedisCacheConfig">
         <constructor-arg ref="connectionFactory" />
         <constructor-arg ref="redisTemplate" />

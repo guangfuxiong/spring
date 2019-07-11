@@ -11,6 +11,9 @@ import redis.clients.jedis.exceptions.JedisConnectionException;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
+/**
+ * mybatis整合redis缓存
+ */
 public class RedisCatch implements Cache{
 
     private static JedisConnectionFactory  jedisConnectionFactory;

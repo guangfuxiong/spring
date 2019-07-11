@@ -46,4 +46,21 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
 
+  <!--配置主页过滤器，实现页面缓存-->
+  <filter>
+    <filter-name>cachePage</filter-name>
+    <filter-class>com.webcacheredis.redis.Catchfilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>cachePage</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:webcacheRedis/spring-mvc.xml</param-value>
+  </context-param>
 </web-app>

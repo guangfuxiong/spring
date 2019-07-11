@@ -22,4 +22,7 @@
     <!--导入其他配置文件-->
     <import resource="classpath:webcacheRedis/spring-dao.xml"/>
     <import resource="classpath:webcacheRedis/spring-redis.xml"/>
+
+    <!--此处是为了实现页面缓存必须生成的bean，如果没有filter中就获取不到ApplicationContext对象-->
+    <bean class="com.webcacheredis.redis.Catchfilter"/>
 </beans>

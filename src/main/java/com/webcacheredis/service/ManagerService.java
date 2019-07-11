@@ -12,4 +12,5 @@ public interface ManagerService {
     public List<Manager> listManager();
     Manager findManagerById(Integer oid);
     void updateManager(Manager manager);
+    void fushall();
 }

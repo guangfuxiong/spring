@@ -6,7 +6,7 @@
     <!--基于spring注解的缓存，要注释掉cache标签-->
     <!--<cache type="com.webcacheredis.util.RedisCatch"/>-->
     <insert id="addManager" parameterType="com.webcacheredis.bean.Manager">
-        INSERT INTO manager VALUES (null,#{username},#{password},#{type},#{hid},#{state});
+        INSERT INTO manager VALUES (#{oid},#{username},#{password},#{type},#{hid},#{state});
     </insert>
     <select id="listManager" resultType="com.webcacheredis.bean.Manager">
         select * from manager

@@ -192,6 +192,13 @@
         </exclusion>
       </exclusions>
     </dependency>
+
+    <!--json手动转化jar包-->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.1.41</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>spring</finalName>

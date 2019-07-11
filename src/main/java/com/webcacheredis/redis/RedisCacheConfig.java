@@ -17,6 +17,9 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 
 /**
+ * spring缓存注解整合redis
+ *
+ *
  *redis 缓存配置;
  *
  *注意：RedisCacheConfig这里也可以不用继承 ：CachingConfigurerSupport，也就是直接一个普通的Class就好了；
@@ -26,9 +29,9 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  *普通使用普通类的方式的话，那么在使用@Cacheable的时候还需要指定KeyGenerator的名称;这样编码的时候比较麻烦。
  *
  */
-@Configuration  
-@EnableCaching
-public class RedisCacheConfig extends CachingConfigurerSupport {  
+//@Configuration
+//@EnableCaching
+public class RedisCacheConfig extends CachingConfigurerSupport {
       
 	
 	 private volatile JedisConnectionFactory mJedisConnectionFactory;  
